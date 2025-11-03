@@ -572,6 +572,9 @@ class SuperAgent:
 
 
 # Test and demonstration
+from unified_agent import UnifiedAgent
+from kg_system_1 import KnowledgeGraphManager
+
 async def main():
     # Initialize SuperAgent
     super_agent = SuperAgent("UnifiedAI")
@@ -589,6 +592,11 @@ async def main():
     
     await super_agent.register_agent('agent_1', MockAgent('agent_1'))
     await super_agent.register_agent('agent_2', MockAgent('agent_2'))
+
+    # Initialize KG Manager and Unified Agent
+    kg_manager = KnowledgeGraphManager()
+    unified_agent = UnifiedAgent(super_agent=super_agent, kg_manager=kg_manager)
+    await super_agent.register_agent('unified_agent', unified_agent)
     
     # Run health check
     status = await super_agent.run_health_check()

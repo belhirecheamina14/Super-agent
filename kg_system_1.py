@@ -48,7 +48,7 @@ class Outcome:
 class KnowledgeGraphDB:
     """SQLite-based Knowledge Graph Database"""
     
-    def __init__(self, db_path: str = '/home/ubuntu/unified_ai_system/knowledge_graph/kg.db'):
+    def __init__(self, db_path: str = 'knowledge_graph/kg.db'):
         self.db_path = db_path
         self.lock = threading.RLock()
         self._initialize_db()
@@ -410,7 +410,7 @@ class KnowledgeGraphDB:
 class KnowledgeGraphManager:
     """High-level manager for knowledge graph operations"""
     
-    def __init__(self, db_path: str = '/home/ubuntu/unified_ai_system/knowledge_graph/kg.db'):
+    def __init__(self, db_path: str = 'knowledge_graph/kg.db'):
         self.db = KnowledgeGraphDB(db_path)
     
     def register_agent(self, agent_id: str, agent_type: str, properties: Dict[str, Any] = None) -> bool:

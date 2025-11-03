@@ -26,7 +26,7 @@ from datetime import datetime
 # CONFIGURATION
 # ============================================================================
 
-BASE_PATH = Path("/home/ubuntu/unified_ai_system")
+BASE_PATH = Path("./unified_ai_system_generated")
 
 PROJECT_STRUCTURE = {
     "core": {
@@ -88,9 +88,9 @@ PROJECT_STRUCTURE = {
 
 # Fichiers à migrer
 MIGRATION_MAP = {
-    "kg_system_1.py": "core/knowledge_graph/kg_system.py",
-    "super_agent_1.py": "orchestration/super_agent.py",
-    "unified_agent.py": "orchestration/unified_agent.py",
+    "../kg_system_1.py": "core/knowledge_graph/kg_system.py",
+    "../super_agent_1.py": "orchestration/super_agent.py",
+    "../unified_agent.py": "orchestration/unified_agent.py",
 }
 
 # ============================================================================
@@ -799,7 +799,7 @@ class ModelVersion:
 class ModelZoo:
     """Dépôt centralisé de modèles avec versioning et persistence"""
     
-    def __init__(self, storage_path: str = "/home/ubuntu/unified_ai_system/data/models"):
+    def __init__(self, storage_path: str = "./unified_ai_system_generated/data/models"):
         self.storage_path = Path(storage_path)
         self.storage_path.mkdir(parents=True, exist_ok=True)
         
@@ -2208,7 +2208,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from orchestration.integrated_unified_agent import IntegratedUnifiedAgent
-from agents.base_agent import BaseAgent, Task
+from agents.base_agent import BaseAgent, Task, ComponentStatus
 
 # ============================================================================
 # MOCK AGENTS POUR TESTS
